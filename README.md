@@ -1,8 +1,5 @@
-# iOS Font Installer
-
+<h1 align="center">iOS Font Installer</h1>
 A minimalist webpage for installing fonts on iOS / iPadOS devices. Runs entirely client-side.
-
-**Note: This also works on iPadOS.**
 
 ### [You can check it out here!](https://toast-riot.github.io/iOS-Font-Installer/)
 
@@ -26,6 +23,8 @@ A minimalist webpage for installing fonts on iOS / iPadOS devices. Runs entirely
     - On the mobile device, open the Settings app. Tap "Profile Downloaded", then follow the installation instructions.
 
 ## Disclaimer
-This tool does *not* change the system font of the device. Changing the system font is not possible on iOS without exploits.
 
-The fonts installed using this tool can only be used within apps that support custom fonts, such as many design apps (Procreate, Keynote, Pages) and text editors (Runestone, Textastic).
+> [!WARNING]
+> This tool does **not** change the system font of the device. Changing the system font is **not possible** on iOS without exploits.
+>
+> The fonts installed using this tool can only be used within apps that support custom fonts, such as many design apps (Procreate, Keynote, Pages) and text editors (Runestone, Textastic).
