@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const plist = require('simple-plist');
 
     // Shortcut for querySelector
-    const qs = selector => document.querySelector(selector);
+    const qs = selector => document.querySelector(selector)
 
     const resetButton = qs('#reset-button');
     const configForm = qs('.config-form');
@@ -15,35 +15,35 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function userConfig(item) {
         let field = configForm.querySelector(`#${item}`);
+        if (field.type === 'checkbox') {
+            return field.checked;
+        }
+        if (field.type === 'number') {
+            return Number(field.value);
+        }
         return field.value || field.dataset.defaultval;
     }
 
     function refreshIdentifier() {
-        identifierField.dataset.defaultval = 'com.example.font-' + randomString();
-    }
-
-    function updateFileCount() {
-        const files = fileInput.files;
-        let text = files.length ? `${files.length} file${files.length === 1 ? '' : 's'} selected` : 'No files selected';
-        fileName.textContent = text;
+        identifierField.dataset.defaultval = 'com.example.printer-' + randomString();
     }
 
     function generateConfig() {
 
         // Build the profile
         let config = {
-            PayloadContent: payloads.map(payload => ({
-                AirPrint: {
+            PayloadContent: [{
+                AirPrint: [{
                     ForceTLS: userConfig('useTLS'),
                     IPAddress: userConfig('IPAddress'),
                     Port: userConfig('port'),
                     ResourcePath: userConfig('resourcePath')
-                },
-                PayloadIdentifier: userConfig('payloadIdentifier') + '.' + payload.name,
+                }],
+                PayloadIdentifier: userConfig('payloadIdentifier'),
                 PayloadType: 'com.apple.airprint',
                 PayloadUUID: generateUUID(),
                 PayloadVersion: 1
-            })),
+            }],
             PayloadIdentifier: userConfig('payloadIdentifier'),
             PayloadType: 'Configuration',
             PayloadUUID: generateUUID(),
@@ -90,10 +90,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    updateFileCount();
     refreshIdentifier();
-
-    fileInput.addEventListener('change', updateFileCount);
 
     resetButton.addEventListener('click', () => {
         configForm.reset();
