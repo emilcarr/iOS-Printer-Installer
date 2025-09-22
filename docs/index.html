@@ -24,30 +24,43 @@
             <form class="config-form">
                 <table class="config-table">
                     <tr>
-                        <td>Font Files</td>
+                        <td>Printer Address</td>
                         <td>
-                            <div class="file-upload-container">
-                                <label class="button" tabindex="0">Select files
-                                    <input type="file" id="file-upload" multiple accept=".ttf,.otf" />
-                                </label>
-                                <div id="file-name"></div>
-                            </div>
+                            <input type="text" id="IPAddress" name="IPAddress" autocorrect="off" spellcheck="off">
                         </td>
                     </tr>
                     <tr>
-                        <td>Name (optional)</td>
+                        <td>Use TLS?</td>
+                        <td>
+                            <input type="checkbox" id="useTLS" name="useTKS">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Port</td>
+                        <td>
+                            <input type="number" id="port" name="port" autocorrect="off" spellcheck="off">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>ResourcePath</td>
+                        <td>
+                            <input type="text" id="resourcePath" name="resourcePath" autocorrect="off" spellcheck="off">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Profile Name (optional)</td>
                         <td>
                             <input type="text" id="payloadDisplayName" name="payloadDisplayName" autocorrect="off" spellcheck="false">
                         </td>
                     </tr>
                     <tr>
-                        <td>Description (optional)</td>
+                        <td>Profile Description (optional)</td>
                         <td>
                             <input type="text" id="payloadDescription" name="payloadDescription">
                         </td>
                     </tr>
                     <tr>
-                        <td>Identifier (optional)</td>
+                        <td>Profile Identifier (optional)</td>
                         <td>
                             <input type="text" id="payloadIdentifier" name="payloadIdentifier" placeholder="com.example.font" data-defaultval="com.example.font" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
                         </td>
@@ -64,18 +77,15 @@
             <p><strong>Note:</strong> This site works best on iOS / iPadOS Safari.</p>
             <ol>
                 <li>
-                    <strong>Download the Font</strong>
+                    <strong>Get the printer information</strong>
                     <ul>
-                        <li>Download the font you want to install. Recommended sources include <a href="https://fonts.google.com" target="_blank" rel="noopener noreferrer">Google Fonts</a> or <a href="https://www.dafont.com" target="_blank" rel="noopener noreferrer">Dafont</a>.</li>
-                        <li>Ensure the font files are in <code>.ttf </code> or <code>.otf </code> format. If not, you can convert them using an online tool such as <a href="https://convertio.co" target="_blank" rel="noopener noreferrer">Convertio</a>, <a href="https://cloudconvert.com" target="_blank" rel="noopener noreferrer">CloudConvert</a> or <a href="https://www.fontconverter.io" target="_blank" rel="noopener noreferrer">FontConverter</a>.</li>
+                        <li>University of Glasgow Students can find their unique IPP resource address at <a href="https://mobileprint.gla.ac.uk/driverprint.cfm?platform=macosx&printmode=3" target="_blank" rel="noopener noreferrer">UofG mobileprint</a>. Click 'Driver Print'->Mac osx->Find the informatiom</li>
                     </ul>
                 </li>
                 <li>
-                    <strong>Select the Files</strong>
+                    <strong>Input the printer information</strong>
                     <ul>
-                        <li>Click the "Select files" button and select the font files.</li>
-                        <li>If the font includes variations (e.g. Regular, Bold, Italic), select all of them.</li>
-                    </ul>
+                        <li>Type all the info in the appropriate fields above.</li>
                 </li>
                 <li>
                     <strong>Configure Profile (Optional)</strong>
@@ -102,20 +112,11 @@
             </ol>
         </section>
         <hr>
-        <section>
-            <h3>Disclaimer</h3>
-            <p>
-                This tool does <i>not</i> change the system font of the device. Changing the system font is not possible on iOS without exploits.
-            </p>
-            <p>
-                The fonts installed using this tool can only be used within apps that support custom fonts, such as many design apps (Procreate, Keynote, Pages) and text editors (Runestone, Textastic).
-            </p>
-        </section>
         <hr>
         <section>
             <h3>About</h3>
             <p>This is a free, simple, and open-source tool to install fonts on iOS devices.</p>
-            <p>Source code is available on <a href="https://github.com/toast-riot/iOS-Font-Installer" target="_blank" rel="noopener noreferrer">GitHub</a>.</p>
+            <p>Source code is available on <a href="https://github.com/emilcarr/iOS-Printer-Installer" target="_blank" rel="noopener noreferrer">GitHub</a>. Forked from <a href="https://toast-riot.github.io/iOS-Font-Installer/" target="_blank" rel="noopener noreferrer">toast-riot's iOS-Font-Installer</a>.</p>
         </section>
     </main>
     <script src="js/bundle.js"></script>
